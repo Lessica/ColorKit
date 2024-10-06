@@ -21,7 +21,8 @@ extension UIImage {
                 
         let format = UIGraphicsImageRendererFormat()
         format.scale = 1
-        format.opaque = true
+        format.opaque = false
+
         let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
         let resizedImage = renderer.image { _ in
             self.draw(in: CGRect(origin: CGPoint.zero, size: targetSize))

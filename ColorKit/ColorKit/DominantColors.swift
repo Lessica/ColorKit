@@ -49,7 +49,7 @@ extension UIImage {
         case high
         case best
         
-        var prefferedImageArea: CGFloat? {
+        var preferredImageArea: CGFloat? {
             switch self {
             case .low:
                 return 1_000
@@ -79,17 +79,17 @@ extension UIImage {
         /// For example with a `.low` quality, the returned size will be much smaller.
         /// On the opposite, with a `.best` quality, the returned size will be identical to the original size.
         func targetSize(for originalSize: CGSize) -> CGSize {
-            guard let prefferedImageArea = prefferedImageArea else {
+            guard let preferredImageArea = preferredImageArea else {
                 return originalSize
             }
             
             let originalArea = originalSize.area
             
-            guard originalArea > prefferedImageArea else {
+            guard originalArea > preferredImageArea else {
                 return originalSize
             }
             
-            return originalSize.transformToFit(in: prefferedImageArea)
+            return originalSize.transformToFit(in: preferredImageArea)
         }
     }
     
